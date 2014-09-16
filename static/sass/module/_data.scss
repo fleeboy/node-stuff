@@ -1,0 +1,208 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+// Data sources such as maps, graphs, pie charts...Mmmmmm...pie...
+
+.graph-placeholder,
+.map-placeholder,
+.pie-placeholder {
+
+img {
+		max-width: none;
+	}
+}
+
+// Graphs
+
+
+	#shares-insight-chart{
+
+		.graph {
+
+			height:  260px;
+		}
+	}
+
+
+// Maps
+.map-placeholder {
+
+}
+
+.map-wrapper {
+
+  position: relative;
+}
+
+//Frontapge map
+#map3d {
+
+	width :100%;
+
+	display:none;
+
+	@media all and (min-width: 620px) {
+
+		display:block;
+
+		padding-bottom  :33%;
+
+		background : grey;
+	}
+
+
+
+	@media all and (max-width: 1024px) {
+
+		padding-bottom  :59%;
+	}
+
+
+
+	img {
+		max-width: none;
+	}
+
+}
+
+// Map controls
+.full-screen-button-wrapper {
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+}
+
+.full-screen-button {
+
+  color: $faded-white;
+  text-decoration: none;
+  font-size: 2em;
+  @include single-transition(font-size, .5s);
+  @include rotate(45deg);
+  display: block;
+
+
+  &:hover {
+
+    color: $white;
+    font-size: 2.4em;
+
+  }
+}
+
+.full-screen {
+
+  .full-screen-button {
+
+    @include rotate(0deg);
+
+  }
+}
+
+
+
+// Insights main chart
+
+.page-insights #graph {
+
+  height: 400px;
+
+}
+
+.insights-graph {
+
+  position: relative;
+  padding-top: 40px;
+
+  .insights-user-graph-controls {
+
+    overflow: hidden;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+  }
+
+  .field-select {
+
+    width: 50%;
+    max-width: 300px;
+    float: left;
+
+  }
+
+}
+
+
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 640px) {
+
+
+  .full-screen {
+
+    #map {
+
+      height: 94%;
+
+    }
+
+    .map-wrapper {
+
+      height: 100%;
+
+    }
+
+    #map3d {
+
+      height: 200%;
+
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+
+
+  .insights-graph {
+
+    .insights-user-graph-controls {
+
+      width: 50%;
+
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {
+}
+
+.ie8 {
+}
+
+.ie7 {
+}
+
+.ie6 {
+}

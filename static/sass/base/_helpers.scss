@@ -1,0 +1,84 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Helpers
+/*
+/*-----------------------------------------------------------------------------*/
+
+// Variables
+
+$black: rgb(25,25,25);
+$white: rgba(250,250,250,0.9);
+$light-grey: rgb(211,211,211);
+$mid-grey: rgb(161,163,151);
+$dark-grey: rgb(38,38,38);
+$grey: rgb(82,91,88);
+$purple: rgb(88,14,83);
+$dark-purple: rgb(66,10,62);
+$faded-white: rgba(255,255,255,0.5);
+$faded-black: rgba(0,0,0,0.3);
+$dark-blue: rgb(0,81,114);
+$mid-blue: rgb(0,110,154);
+$light-blue: rgb(15,144,192);
+$dark-green: rgb(42,87,31);
+$mid-green: rgb(91,140,51);
+$light-green: rgb(144,172,48);
+$light-orange: rgb(244,121,32);
+$dark-orange: rgb(208,103,27);
+$red: rgb(205,17,35);
+$pink: rgb(200,5,127);
+$faded-pink: rgba(200,5,127,0.5);
+$faded-green: rgba(91,149,51,0.5);
+$faded-red: rgba(205,17,35,0.5);
+$faded-orange: rgba(208,103,27,0.5);
+
+// Sprite map
+$sprites: sprite-map("sprites/*.png");
+
+// Hide stuff
+.hidden,
+.not-mobile {
+
+  display: none;
+  visibility: hidden;
+}
+
+// Header
+// Sticky? bar at top
+.sticky {
+
+  // position: fixed;
+  // top: 0;
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 767px) {
+
+  .not-mobile {
+
+    display: block;
+    visibility: visible;
+  }
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {}
+
+.ie8 {}
+
+.ie7 {}
+
+.ie6 {}

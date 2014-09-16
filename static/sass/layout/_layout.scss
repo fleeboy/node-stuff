@@ -1,0 +1,310 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Layout styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+
+// Insights page has max width
+.page-insights {
+
+  .insights,
+  .insights-panels,
+  .sticky,
+  .wall {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// Header
+.header {
+
+  .sticky {
+
+    background-color: $dark-grey;
+    overflow: hidden;
+    padding: 14px;
+
+  }
+}
+
+// Logo
+.logo-wrapper {
+
+  width: 66%;
+  float: left;
+}
+
+.logo {
+
+  text-decoration: none;
+
+  h1 {
+
+    color: $mid-grey;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1.3em;
+  }
+}
+
+.info-wrapper {
+
+  max-height: 300px;
+  opacity: 1;
+  @include transition(max-height, padding);
+  @include transition-duration(.2s, .5s);
+  //@include transition-delay(0, 1s);
+
+
+
+}
+
+.intro-wrapper {
+
+  padding: 30px 10px;
+  @include background-image(linear-gradient(left, $light-grey, $white));
+  text-align: center;
+
+    h2 {
+
+      margin-top: 0;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      line-height: 1em;
+
+    }
+
+  p {
+
+    font-sizE: 0.8em;
+    margin-bottom: 0;
+  }
+}
+
+// Boxes
+.box {
+
+  i {
+
+    float: right;
+  }
+}
+
+// Footer
+footer {
+
+  background-color: $light-grey;
+  padding: 10px;
+  overflow: hidden;
+  @include transition(all);
+  @include transition-duration(.5s);
+
+
+}
+
+.footer-logo {
+
+  width: 100px;
+  float: left;
+}
+
+.small-print {
+
+  width: 40%;
+  float: right;
+
+  p {
+
+    font-size: 0.5em;
+    margin: 0.5em;
+    text-align: right;
+  }
+}
+
+
+// Insights override
+.page-insights {
+
+  .logo-wrapper {
+
+    width: 100%;
+  }
+
+  h1 {
+
+    span {
+
+      font-weight: 100;
+    }
+  }
+}
+
+.graph,
+.map {
+
+  @include background-image(linear-gradient(left, $light-grey, $white));
+  width: 100%;
+  min-height: 140px;
+
+}
+
+.map {
+
+  min-height: 200px;
+}
+
+// Faded black overlay for modular popup boxes
+.modular-overlay {
+
+  position: absolute;
+  top: -99999px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  @include transition(opacity);
+  @include transition-duration(1s);
+
+  &.active {
+
+    display: block;
+    visibility: visible;
+    top: 0;
+    opacity: 0.8;
+
+  }
+
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+// Smaller tablets
+@media all and (min-width: 640px) {
+
+    html {
+
+      height: 100%;
+
+    }
+
+    #page.full-screen {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%
+
+    }
+
+
+  .info-wrapper {
+
+    @include background-image(linear-gradient(left, $light-grey, $white));
+    padding: 20px;
+  }
+
+  .full-screen {
+
+    .info-wrapper {
+
+      max-height: 0px;
+      padding: 0;
+      overflow: hidden;
+
+    }
+  }
+
+  .intro-wrapper {
+
+    background: none;
+    float: left;
+    width: 34%;
+    text-align: left;
+    padding: 0 20px;
+
+  }
+
+  .full-screen {
+
+    .intro-wrapper {
+
+      max-height: 0;
+      padding: 0 20px;
+
+    }
+
+    footer {
+
+      max-height: 0;
+      padding: 0 10px;
+
+    }
+  }
+
+}
+
+// iPad
+@media all and (min-width: 767px) {
+
+}
+
+@media all and (min-width: 1920px) {
+
+
+  .page-insights {
+
+    .intro-wrapper {
+
+      width: 40%;
+
+    }
+  }
+
+
+  .intro-wrapper {
+
+    width: 47%;
+
+    h2 {
+
+      float: left;
+      margin-right: 0.5em;
+
+    }
+
+    p {
+
+      line-height: 2.4em;
+
+    }
+
+  }
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {}
+
+.ie8 {}
+
+.ie7 {}
+
+.ie6 {}

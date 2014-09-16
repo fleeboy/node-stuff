@@ -1,0 +1,160 @@
+extends layout
+
+block prepend body
+    // Change .not-full-screen to .full-screen for full screen mode!
+    body#page.page-livestats.not-full-screen
+
+block header
+    section#header.header
+        // THis top bit might be sticky?
+        .sticky
+            // Logo
+            .logo-wrapper
+                a(href='/').logo.logo-header
+                    h1 Live Stats
+            // CSS or JS toggle ala IOS
+            .toggle-wrapper
+                label(for='header-toggle')
+                    input(type='checkbox', name='header-toggle')#header-toggle.toggle.header-toggle.ios-switch
+                    .switch
+        // User info & controls
+        #user-info.module.info-wrapper
+            .widget.month-wrapper.not-mobile
+                .widget-title
+                    h4.Month Month
+                .widget-body
+                    p.month 00
+            .intro-wrapper
+                .intro
+                    h2 Touch a billion.
+                    p Introducing people to Jesus and encouraging them to become His true followers.
+            // The user dropdowns in the header
+            .stats-controls-wrapper
+                .stats-controls
+                    // User language form
+                    form(action='/', method='post')#stats-language.stats-language
+                        .field.ss-icon(class='field-select')
+                            label(for='lang').hidden Select language
+                            select#select-language
+                                optgroup(label='checkboxes')
+                                    option(value='all') All languages
+                                    option(value='en') English
+                                    option(value='en') Chinese - Simplified
+                                    option(value='en') Chinese - Traditional
+                                    option(value='fr') French
+                                    option(value='en') Indonesian
+                                    option(value='ru') Russian
+                                    option(value='es') Spanish
+                                optgroup(label='tags')
+                                    option(value='site1') Site 1
+                                    option(value='site1') Site 2
+                                    option(value='site1') Site 3
+                                    option(value='site1') Site 4
+                                    option(value='site1') Site 5
+                                    option(value='site1') Site 6
+                                    option(value='site1') Site 7
+                                    option(value='site1') Site 8
+                                    option(value='site1') Site 9
+                    // User view mode
+                    form(action='/', method='post')#user-view-mode.user-view-mode.not-mobile
+                        .field.ss-icon(class='field-select')
+                            label(for='lang').hidden View mode
+                            select#select-view-mode
+                                option(value='sat') Satellite view mode
+                                option(value='map') Map view mode
+                                option(value='glo') Global view mode
+
+block content
+    // The map section either EarthAPI or Maps API?
+    section#map.not-mobile
+       .module.map-wrapper
+           #map3d
+                noscript Please enable JavaScript to view the map
+           .message.error.hidden Your browser does not support WebGL so the 3D globe will not show
+           .full-screen-button-wrapper.ss-icon
+                a(href="#", title="Full screen")#full-screen-button.full-screen-button move
+    #fs-wrapper.full-screen-wrapper
+        // The statistics container
+        section#stats.livestats
+            .module.stats-wrapper
+                .col.visits-col
+                    .box.stat-box.visits.now#now
+                        h3.stat-title Online now:
+                        p.stat-number 0,000,000
+                    .box.stat-box.visits.today#today
+                        h3.stat-title Visits today:
+                        p.stat-number 0,000,000
+                    .box.stat-box.visits.key.not-mobile#key
+                        h3.stat-title Key:
+                        ul
+                            li Visits
+                            li Go
+                            li Grow
+                .col.go-col
+                    .box.stat-box.go.touch#touch
+                        h3.stat-title Touch
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Touch
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.go.engage#engage
+                        h3.stat-title Engage
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Engage
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.go.decide#decide
+                        h3.stat-title Decide
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Decide
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                .col.grow-col
+                    .box.stat-box.grow.contact#contact
+                        h3.stat-title Contact
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Contact
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.grow.responses#responses
+                        h3.stat-title Responses
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Responses
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.grow.discipled#discipled
+                        h3.stat-title Discipled
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Discipled
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+        // Testimonies section
+        section#testimonies.flexslider
+            div.testimonies-wrapper
+                h2 Testimonies:
+                ul.testimonies.slides
+                    li.testimony
+                        p Proin lacus diam, tristique egestas arcu et, malesuada ultricies liquia. Etiam non henderit lectus. Aliquam sed purus blandit, iaculus leo in, adipiscing arcu. Nullam varius mollis interdum
+                        p.flag.uk United Kingdom
+                    li.testimony
+                        p Another testimony...
+                        p.flag.fr France
+block user
+    // User login
+    .user-controls-login
+        a(href="#")#login.button.login-button.ss-user Log in to Insights
+    // User settings
+    .user-controls-settings.ss-icon
+        a(href="#")#settings.button.settings-button settings

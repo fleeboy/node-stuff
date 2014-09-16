@@ -1,0 +1,109 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Module styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+// Header toggle
+.toggle-wrapper {
+
+  width: 33%;
+  float: right;
+
+  label {
+
+    line-height: 2em;
+    float: right;
+    margin: 0;
+    font-size: 1em;
+
+  }
+}
+
+/**
+ * iOS 6 style switch checkboxes
+ * by Lea Verou http://lea.verou.me
+ */
+
+:root input[type="checkbox"].header-toggle { /* :root here acting as a filter for older browsers */
+  position: absolute;
+  opacity: 0;
+
+}
+
+:root input[type="checkbox"].ios-switch + div {
+  display: inline-block;
+  vertical-align: middle;
+  width: 4em;
+  height: 25px;
+  border-bottom: 1px solid rgba(254,254,254,0.3);
+  border-radius: 999px;
+  background: white;
+  @include background-image(linear-gradient(top, $purple, $dark-purple));
+  background-clip: border-box;
+  overflow: hidden;
+  transition-duration: .4s;
+  transition-property: padding, width, background-position, text-indent;
+  box-shadow: 0 .1em .1em rgba(0,0,0,.2) inset,
+  0 .45em 0 .1em rgba(0,0,0,.05) inset;
+  font-size: 150%; /* change this and see how they adjust! */
+}
+
+:root input[type="checkbox"].ios-switch:checked + div {
+  padding-left: 3em;
+  //width: 1em;
+  background-position: 0 0;
+
+}
+
+:root input[type="checkbox"].ios-switch + div:before {
+  content: 'Today';
+  float: left;
+  width: 1.65em; height: 1.65em;
+  border-radius: inherit;
+  background: white;
+  background-image: linear-gradient(rgba(0,0,0,.2), transparent);
+  box-shadow: 0 0 .1em .3em hsla(0,0%,100%,.8) inset, 0 0 .5em rgba(0,0,0,.3);
+  color: white;
+  text-shadow: 0 0px 2px rgba(254,254,254,.8);
+  text-indent: -4em;
+
+}
+
+:root input[type="checkbox"].ios-switch:active + div:before {
+  //background-color: #eee;
+}
+
+:root input[type="checkbox"].ios-switch:focus + div {
+  box-shadow: 0 .1em .1em rgba(0,0,0,.2) inset,
+  0 .45em 0 .1em rgba(0,0,0,.05) inset,
+  0 0 .4em 1px rgba(255,0,0,.5);
+}
+
+:root input[type="checkbox"].ios-switch + div:before,
+:root input[type="checkbox"].ios-switch + div:after {
+  font: 60%/1.9 sans-serif;
+  text-transform: uppercase;
+}
+
+:root input[type="checkbox"].ios-switch + div:after {
+  content: 'Total';
+  float: left;
+  text-indent: .5em;
+  color: $white;
+  text-shadow: 0 0px 2px rgba(254,254,254,.8);
+
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 767px) {
+
+}

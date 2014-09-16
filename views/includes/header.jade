@@ -1,0 +1,23 @@
+//
+   Created with JetBrains PhpStorm.
+   User: leeowen
+   Date: 16/09/13
+   Time: 16:52
+   To change this template use File | Settings | File Templates.
+
+section#header.header
+    .sticky
+        .logo-wrapper
+            a(href='/').logo.logo-header
+                h1 Live Stats
+        .toggle-wrapper
+            label(for='header-toggle') toggle today or total
+            input(type='checkbox', name='header-toggle')#header-toggle.toggle.header-toggle
+    #info.module.info-wrapper
+        .intro-wrapper
+            .intro
+                h2 Touch a billion
+                p Introducing people to Jesus and encouraging them to become His true followers.
+        .module.user-controls-wrapper
+            .user-controls
+                +form('/', 'post', 'user-control')

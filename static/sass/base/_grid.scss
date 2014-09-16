@@ -1,0 +1,176 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  The Grieeeeed Gringo...
+/*
+/*-----------------------------------------------------------------------------*/
+
+// Global
+* {
+
+  box-sizing: border-box;
+}
+
+html {
+
+  position: relative;
+
+}
+
+.module {
+
+  overflow: hidden;
+}
+
+// Boxes
+.box {
+
+  padding: 10px;
+
+}
+
+.main-col {
+
+  width: 100%;
+  padding: 10px;
+}
+
+.col {
+
+  width: 100%;
+}
+
+.col2 {
+
+  width: 50%;
+  float: left;
+
+}
+
+.col3 {
+
+  width: 33.333333%;
+  float: left;
+
+}
+
+.col4 {
+
+  width: 25%;
+  float: left;
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 640px) {
+
+  html {
+
+    z-index: 640;
+  }
+
+  .not-mobile {
+
+    display: block;
+    visibility: visible;
+  }
+
+  .main-col {
+
+    max-width: 50%;
+    float: left;
+    padding: 20px 2% 20px 4%;
+
+    &:nth-child(2),
+    &:nth-child(4) {
+
+      padding: 20px 4% 20px 2%;
+    }
+
+    &:nth-child(3) {
+
+      clear: left;
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+
+  html {
+
+    z-index: 1024;
+  }
+
+  .main-col {
+
+    max-width: 25%;
+    float: left;
+    padding: 10px 5px 10px 10px;
+
+    &:nth-child(2),
+    &:nth-child(3) {
+
+      clear: none;
+      padding: 10px 5px 10px 5px;
+    }
+
+    &:nth-child(4) {
+
+      padding: 10px 10px 10px 5px;
+
+    }
+  }
+}
+
+@media all and (min-width: 1200px) {
+
+  html {
+
+    z-index: 1200;
+  }
+
+  .main-col {
+
+    &:nth-child(1) {
+
+      padding-left: 0;
+    }
+
+    &:nth-child(4) {
+
+      padding-right: 0;
+
+    }
+  }
+}
+
+@media all and (min-width: 1920px) {
+
+
+  html {
+
+    z-index: 1920;
+  }
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {}
+
+.ie8 {}
+
+.ie7 {}
+
+.ie6 {}

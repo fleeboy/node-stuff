@@ -1,0 +1,544 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Stats control
+/*
+/*-----------------------------------------------------------------------------*/
+
+
+.stats-controls-wrapper {
+
+  background-color: $dark-grey;
+  padding: 20px 10px 1px;
+  overflow: hidden;
+  top: -100px;
+  @include transition(top);
+  @include transition-duration(1s);
+
+
+}
+
+.user-timerange-input-from,
+.user-timerange-input-to {
+
+  width: 35%;
+  margin-right: 10px;
+}
+
+.user-timerange-input-submit {
+
+  float: right;
+}
+
+// ** Add class of .active to this .stat-box to show the rollover
+.stat-box {
+
+  width: 100%;
+  border: 1px solid $faded-black;
+  float: left;
+  background-color: $dark-grey;
+  min-height: 110px;
+  //max-height: 130px;
+  overflow: hidden;
+  position: relative;
+
+
+  .stat-title {
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+    color: $faded-white;
+    margin: 0 0 0.4em;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    @include single-transition(top, .7s);
+
+
+    i {
+
+      cursor: pointer;
+    }
+
+  }
+
+  .stat-number {
+
+    color: $white;
+    font-family: 'Six Caps', impact;
+    font-size: 4em;
+    line-height: 1em;
+    margin: 0;
+    position: relative;
+    @include single-transition(top, .4s);
+
+
+  }
+
+  .info-rollover {
+
+    position: absolute;
+    @include single-transition(top, .5s);
+    top: 150px;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    left: 0;
+    height: 100%;
+    padding: 10px;
+
+    h3 {
+
+      color: $white;
+    }
+
+    p {
+
+      color: $white;
+      font-size: 0.8em;
+
+    }
+  }
+
+  &.active {
+
+    & > .stat-title,
+    & > .stat-number {
+
+      top: -150px;
+
+    }
+
+    border: $white;
+
+    .info-rollover {
+
+      top: 0px;
+
+    }
+  }
+
+}
+
+.livestats,
+.insights {
+
+  .col {
+
+    width: 50%;
+    float: left;
+  }
+
+  .visits-col {
+
+    width: 100%;
+
+    .stat-box {
+
+      width: 50%;
+
+    }
+
+  }
+}
+
+// Key
+.key {
+
+  padding-right: 0;
+  float: right;
+
+  ul {
+
+    margin: 0;
+    padding: 0;
+
+    li {
+
+      list-style-type: none;
+      width: 50px;
+      height: 50px;
+      float: left;
+      margin-right: 10px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 2px;
+
+      &:nth-child(1) {
+
+        background-color: $light-orange;
+      }
+
+      &:nth-child(2) {
+
+        background-color: $light-blue;
+      }
+
+      &:nth-child(3) {
+
+        background-color: $light-green;
+      }
+
+      text-transform: uppercase;
+      font-size: 0.8em;
+      font-weight: 700;
+
+    }
+  }
+}
+
+// Background colors for stat boxes
+.stat-box {
+
+  &.touch {
+
+    background-color: $light-blue;
+  }
+
+  &.engage {
+
+    background-color: $mid-blue
+  }
+
+  &.decide {
+
+    background-color: $dark-blue;
+  }
+
+  &.contact {
+
+    background-color: $light-green;
+  }
+
+  &.responses {
+
+    background-color: $mid-green;
+  }
+
+  &.discipled {
+
+    background-color: $dark-green;
+  }
+}
+
+// Full-screen defualt wrapper
+.full-screen-wrapper {
+
+  left: -100%;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  border-radius: 0px;
+  @include transition(left);
+  @include transition-duration(1s);
+
+
+  .show-stats {
+
+    h3 {
+
+      text-align: center;
+      color: $white;
+      font-size: 1em;
+      font-weight: 100;
+      cursor: pointer;
+
+
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 640px) {
+
+  .full-screen {
+
+    .full-screen-wrapper {
+
+      position: absolute;
+      top: 95%;
+      bottom: auto;
+      left: 6%;
+      width: 33.333%;
+      max-width: 320px;
+      min-width: 280px;
+      z-index: 999999;
+      border-radius: 4px;
+      box-shadow: 0 0 20px 2px $black;
+      overflow: hidden;
+      background-color: $dark-grey;
+
+
+      .key {
+
+        width: 100%;
+        display: none;
+
+      }
+
+    }
+
+    .active {
+
+      &.full-screen-wrapper {
+
+        top: 10%;
+        bottom: auto;
+        @include transition(top);
+        @include transition-duration(1s);
+
+      }
+    }
+
+    .stats-controls-wrapper {
+
+      position: absolute;
+      top: 9px;
+      right: 120px;
+
+
+    }
+
+    #stats-language {
+
+      margin: 20px 10px 10px;
+
+    }
+
+  }
+
+
+  .stats-controls-wrapper {
+
+    background: none;
+    width: 50%;
+    padding: 0;
+    float: right;
+
+  }
+
+  .panels {
+
+    .stats-controls-wrapper {
+
+      width: 100%;
+      padding: 10px;
+    }
+  }
+
+  .stat-box {
+
+    .stat-number {
+
+
+      font-size: 4em;
+
+    }
+
+  }
+
+  .not-full-screen {
+
+    .livestats,
+    .insights {
+
+      .col {
+
+        width: 100%;
+        float: left;
+      }
+
+      .visits-col,
+      .go-col,
+      .grow-col {
+        .stat-box {
+
+          width: 33.333333%;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+
+  .stats-controls-wrapper {
+
+    .stats-language {
+
+      width: 48%;
+      max-width: 300px;
+      float: left;
+
+    }
+
+    .user-timerange-mode,
+    .user-view-mode {
+
+      .field {
+
+        width: 49%;
+        max-width: 300px;
+        float: right;
+
+      }
+    }
+
+    .field-user-timerange-input {
+
+      float: right;
+      text-align: right;
+
+      input[type="text"],
+      input[type="date"] {
+
+        max-width: 110px;
+
+      }
+    }
+  }
+
+  .page-livestats {
+
+    .stats-controls-wrapper {
+
+      .stats-language {
+
+        max-width: 100%;
+
+      }
+
+      .user-view-mode {
+
+        .field {
+
+          max-width: 100%;
+
+        }
+      }
+    }
+  }
+
+  .not-full-screen {
+
+    .livestats,
+    .insights {
+
+      .col {
+
+        width: 50%;
+
+      }
+
+      .visits-col,
+      .go-col,
+      .grow-col {
+        .stat-box {
+
+        }
+      }
+
+      .visits-col {
+
+        width: 100%;
+
+        .stat-box {
+
+          width: 16.66666%;
+
+          &.key {
+
+            min-width: 200px;
+          }
+        }
+      }
+    }
+  }
+
+  .full-screen {
+
+    .full-screen-wrapper {
+
+      top: auto;
+      bottom: 0;
+      left: 4%;
+      padding-top: 0;
+
+
+    }
+  }
+
+}
+
+@media all and (min-width: 1920px) {
+
+  .not-full-screen {
+
+    .livestats {
+
+      .col {
+
+        width: 50%;
+
+      }
+
+      .visits-col,
+      .go-col,
+      .grow-col {
+
+        width: 33.333333%;
+
+        .stat-box {
+
+        }
+      }
+
+        .visits-col {
+
+          .stat-box {
+
+            width: 33.333333%;
+
+            &.key {
+
+              min-width: auto;
+            }
+
+          }
+        }
+    }
+  }
+
+  .full-screen {
+
+    .full-screen-wrapper {
+
+      left: 3%;
+      top: 33%;
+      bottom: auto;
+
+    }
+  }
+
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {}
+
+.ie8 {}
+
+.ie7 {}
+
+.ie6 {}

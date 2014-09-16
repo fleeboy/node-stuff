@@ -1,0 +1,123 @@
+!!! 5
+//if lt IE 7
+  html.no-js.ie6.oldie(lang='en')
+//if IE 7
+  html.no-js.ie7.oldie(lang='en')
+//if IE 8
+  html.no-js.ie8.oldie(lang='en') 
+//[if gt IE 8]><!
+html.no-js(lang='en')
+  //<![end if]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title=title
+    meta(name='description', content=description)
+    meta(name='author', content=author)
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='webfonts/ss-standard.css', rel='stylesheet')
+    link(href='js/libs/flexslider/flexslider.css', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/core.css')
+    script(src='js/libs/modernizr.js')
+    script
+        WebFontConfig = {
+          google: { families: [ 'Roboto+Slab:400,700:latin', 'Open+Sans:400,700,400italic,700italic:latin', 'Open+Sans+Condensed:700:latin', 'Six+Caps::latin' ] }
+        };
+        (function() {
+          var wf = document.createElement('script');
+          wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+          wf.type = 'text/javascript';
+          wf.async = 'true';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(wf, s);
+        })();
+    block body
+      block header
+
+      block content
+
+      block footer
+          footer
+              .wall
+                  #user.module.user-section
+                      // The user dropdowns in the header
+                      .user-controls-wrapper
+                          // User language
+                          .user-controls-language
+                              // User language form
+                              form(action='/', method='post').user-language
+                                  .field-select.ss-icon.field-user-controls
+                                      label(for='lang').hidden Select Translation
+                                      select
+                                          option(value='all') Select Translation
+                                          option(value='en') English
+                                          option(value='en') Chinese - Simplified
+                                          option(value='en') Chinese - Traditional
+                                          option(value='fr') French
+                                          option(value='en') Indonesian
+                                          option(value='ru') Russian
+                                          option(value='es') Spanish
+                          block user
+                  #org-info.module.org-info
+                      a(href="#")#org-logo.logo.footer-logo
+                          img(src="images/cv-logo.png", alt="Christian Vision logo")
+                      .small-print
+                        p &copy;2013 Christian Vision
+                        p UK Charity 1031031
+          // Login box
+          #overlay.modular-overlay
+          .user-login-box-wrapper
+              #login-box.login-box
+                  .login-box-header
+                    h2.login-box-heading Log in
+                    i.ss-icon delete
+                  input(type="checkbox", name="user-login-forgot")#user-login-forgot.link.user-login-forgot-link
+                  label(for="user-login-forgot").user-login-forgot-link-label Forgotten your password?
+                  .login-box-body
+                      form(action='/', method='post')#user-login.user-login
+                         .field.field-user-login(class='field-text')
+                             label(for='email') Your email address
+                             input(type='email', name='email', placeholder='Your email address', validate, required)#user-login-input-email.user-login-email
+                             label(for='password') Your password
+                             input(type='password', name='password', placeholder='Your password', validate, required)#user-login-input-password.user-login-password
+                             input(type='submit', value="Log in to insights")#user-login-input-submit.submit.user-login-input-submit
+                  .login-box-forgotten
+                      form(action='/', method='post')#user-forgot.user-login-forgot
+                          .field.field-user-forgot(class='field-text')
+                              label(for='email') Your email address
+                              input(type='email', name='email', placeholder='Your email address', value="Error", validate, required)#user-login-forgot-email.user-login-forgot.error
+                              input(type='submit', value="Send me a reminder")#user-forgot-input-submit.submit.user-forgot-input-submit
+
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src="https://www.google.com/jsapi")
+    script
+    
+      google.load("visualization", "1", {packages:["corechart", "geochart"]});
+      
+      google.setOnLoadCallback(window.drawChart );
+
+    script
+      window.jQuery || document.write('<script src="js/libs/jquery-1.10.2.min.js"><\\/script>')
+    //-script(defer, src='js/plugins.js')
+    //script(defer, src='/socket.io/socket.io.js')
+    script(src="js/libs/html5forms/shared/js/modernizr.com/Modernizr-2.5.3.forms.js")
+    script(data-webforms2-support="validation,placeholder,date", data-lang="en", src="js/libs/html5forms/shared/js/html5Forms.js")
+    script(defer, src='js/libs/underscore-min.js')
+    script(defer, src='js/libs/backbone-min.js')
+    script(defer, src='js/libs/flexslider/jquery.flexslider-min.js')
+    script(defer, src='js/libs/_dropem.js')
+    script(defer, src='js/core.js')
+    script
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    script(src='/webfonts/ss-standard.js')
+    //if lt IE 7
+      script(defer, src='//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js')
+      script(defer)
+        window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
+
+
+

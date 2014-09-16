@@ -1,0 +1,419 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+.panels {
+
+  background-color: $dark-grey;
+
+  i {
+
+    color: $faded-black;
+
+  }
+}
+
+.panel {
+
+  background-color: $light-grey;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.panel-header {
+
+  text-align: center;
+  padding: 20px 10px 0;
+  background-color: $mid-grey;
+  position: relative;
+  border-radius: 6px 6px 0 0;
+
+  h3 {
+
+    color: $white;
+    margin: 0;
+    font-family: "Roboto Slab";
+    font-weight: 200;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    background: url("/images/sprites/panel-hole.png") top center no-repeat;
+    //background: sprite($sprites, panel-hole) no-repeat;
+    //background-position: center -50px; // Override $sprite defaults
+    line-height: 3em;
+
+  }
+
+  i {
+
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+
+  }
+}
+
+.panel-body {
+
+  overflow: hidden;
+  @include background-image(linear-gradient(left, $light-grey, $white));
+  color: $mid-grey;
+  text-align: center;
+
+  .col {
+
+    float: left;
+
+  }
+
+  .list {
+
+    position: relative;
+    padding-bottom: 40px;
+
+  }
+
+  .stat {
+
+    font-size: 5em;
+    font-family: 'Six Caps';
+    margin-top: 30px;
+
+  }
+
+  .label {
+
+    line-height: 2em;
+  }
+
+  &>div:not(.list):hover,
+  &>:not(.list).active,
+  &>div:not(.list):focus {
+
+    cursor: pointer;
+
+    .stat {
+
+      color: $grey;
+
+    }
+
+    .label {
+
+      background-color: $grey;
+      color: $white;
+    }
+  }
+
+
+  .list .stat {
+
+    font-family: "open Sans";
+  }
+
+  .label {
+
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .list {
+
+    ul {
+
+      max-height: 97px;
+      @include single-transition(max-height, .5s);
+
+    }
+
+    li {
+
+      overflow: hidden;
+      padding: 5px 10px;
+      border-bottom: 1px solid $white;
+      background-color: $grey;
+      color: $white;
+      height: 33px;
+
+
+      &:last-child {
+
+        border: none;
+        //margin-bottom: 10px;
+      }
+
+      &:hover,
+      &.active,
+      &:focus {
+
+        background-color: $mid-grey;
+        cursor: pointer;
+
+      }
+    }
+
+    .stat {
+
+      float: right;
+      font-size: 0.8em;
+      margin: 0
+    }
+
+    .label {
+
+      float: left;
+      margin: 0;
+    }
+
+  }
+}
+
+.pie {
+
+  .panel-body {
+
+    .list {
+
+      li:nth-child(1) {
+
+          background-color: $red;
+      }
+      li:nth-child(2) {
+
+          background-color: $purple;
+      }
+      li:nth-child(3) {
+
+          background-color: $pink;
+      }
+      li:nth-child(4) {
+
+          background-color: $light-orange;
+      }
+      li:nth-child(5) {
+
+          background-color: $mid-green;
+      }
+    }
+
+  }
+}
+
+.visits {
+
+  .panel-header {
+
+    @include background-image(linear-gradient(top, $light-orange, $dark-orange));
+
+
+  }
+}
+
+.go {
+
+  .panel-header {
+
+    @include background-image(linear-gradient(top, $light-blue, $mid-blue));
+
+
+  }
+}
+.grow {
+
+  .panel-header {
+
+    @include background-image(linear-gradient(top, $light-green, $mid-green));
+
+
+  }
+}
+
+// Form overrides
+.panel {
+
+  .stats-controls-wrapper {
+
+    background-color: transparent;
+
+  }
+
+  overflow: hidden;
+
+  .field-select {
+
+    select {
+
+      background-color: $light-grey;
+      color: $dark-grey;
+    }
+
+    &:after {
+
+      background-image: none;
+      background-color: $dark-grey;
+    }
+  }
+
+  .info-rollover {
+
+    //position: relative;
+    @include transition(height, padding);
+    @include transition-duration(.5s, .5s);
+    top: -10px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 0 10px;
+    height: 0;
+    overflow: hidden;
+
+
+    h3 {
+
+      color: $white;
+    }
+
+    i {
+
+      float: right;
+      color: $faded-white;
+
+      &:hover,
+      &.active {
+
+        color: $white;
+        cursor: pointer;
+      }
+    }
+
+    p {
+
+      color: $white;
+      font-size: 0.8em;
+      clear: both;
+
+    }
+  }
+
+  &.active {
+
+    .info-rollover {
+
+      height: 100px;
+      padding: 10px;
+
+    }
+  }
+
+  // Show more
+
+  .panel-more {
+
+    float: left;
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+
+    &:checked ~ .panel-more-label:after {
+
+      content: " Less";
+
+    }
+
+    &:checked ~ ul {
+
+      max-height: 200px;
+
+    }
+  }
+
+  .panel-more-label {
+
+    color: $faded-black;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    background: $light-grey;
+    padding: 10px;
+    float: none;
+
+    &:after {
+
+      content: " more";
+
+    }
+
+    &:hover {
+
+      color: $grey;
+      cursor: pointer;
+
+    }
+
+  }
+}
+
+.icon-mob,
+.icon-tab,
+.icon-desk {
+
+  padding-top: 60px;
+
+}
+
+.icon-mob {
+
+  //@include sprite($sprites, icon-mob);
+  background: url("/images/sprites/icon-mob.png") center 40px no-repeat;
+
+}
+
+.icon-tab {
+
+  background: url("/images/sprites/icon-tab.png") center 30px no-repeat;
+
+}
+
+.icon-desk {
+
+  background: url("/images/sprites/icon-desk.png") center 20px no-repeat;
+
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 767px) {
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {
+}
+
+.ie8 {
+}
+
+.ie7 {
+}
+
+.ie6 {
+}

@@ -1,0 +1,76 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Testimonies styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+.testimonies-wrapper {
+
+  background-color: $dark-grey;
+  margin: 0;
+  padding: 20px 10% 0;
+  text-align: center;
+
+  h2 {
+
+    font-size: 0.9em;
+    margin: 0 0 0.4em;
+    color: $faded-white;
+
+  }
+}
+
+.testimonies {
+
+  margin: 0;
+  padding: 0;
+}
+
+.testimony {
+
+  list-style-type: none;
+
+  p {
+
+    font-size: 0.8em;
+    margin: 0.5em;
+    color: $white;
+  }
+
+  .flag {
+
+    color: $mid-grey;
+    font-size: 0.6em;
+
+    &.uk {}
+
+  }
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 767px) {
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {}
+
+.ie8 {}
+
+.ie7 {}
+
+.ie6 {}

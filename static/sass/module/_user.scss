@@ -1,0 +1,352 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+.user-section {
+
+  .field-select {
+
+    select {
+
+      background-color: $white;
+      color: $dark-grey;
+    }
+
+    &:after {
+
+      background-image: none;
+      background-color: $dark-grey;
+    }
+  }
+}
+
+.login-button {
+
+  padding-left: 42px;
+  width: 100%;
+  position: relative;
+  color: $faded-white;
+
+  &:before {
+
+    font-size: 1.6em;
+    position: absolute;
+    top: 46%;
+    left: 12px;
+  }
+
+  &:hover {
+
+    color: $white;
+
+  }
+}
+
+.logged-in {
+
+  .login-button {
+
+    width: 82%;
+  }
+
+}
+
+.user-controls-settings {
+
+  float: right;
+}
+
+.settings-button {
+
+  @extend .hidden;
+}
+
+.logged-in {
+
+  .settings-button {
+
+    display: block;
+    visibility: visible;
+    width: 42px;
+    height: 42px;
+    float: right;
+    font-size: 1.2em;
+    color: $faded-white;
+    text-align: center;
+    padding: 12px;
+    line-height: 25px;
+
+    &:hover {
+
+      color: $white;
+    }
+
+  }
+}
+
+.page-insights {
+  .user-controls-language {
+
+    @extend .hidden;
+  }
+}
+
+// Login box
+
+.user-login-box-wrapper {
+
+  position: absolute;
+  top: -1000px;
+  left: 0;
+  width: 100%;
+  @include transition(top);
+  @include transition-duration(.5s);
+
+  &.active {
+
+    top: 200px;
+    display: block;
+    visibility: visible;
+
+
+  }
+}
+
+
+.login-box {
+
+  width: 320px;
+  margin: 0 auto;
+  background-color: $light-grey;
+  border-radius: 6px;
+  box-shadow: 0 0 20px 2px $black;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+
+  .login-box-header {
+
+    background-color: $purple;
+    border-radius: 4px 4px 0 0;
+    padding: 30px 0 10px;
+    position: relative;
+    height: 84px;
+
+
+    h2 {
+
+      font-family: "Roboto Slab";
+      font-weight: 100;
+      text-transform: none;
+      color: $white;
+      text-align: center;
+      margin: 0;
+    }
+
+    i.ss-icon {
+
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: $faded-black;
+
+      &:hover {
+
+        color: $white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .login-box-body,
+  .login-box-forgotten {
+
+    background-color: $light-grey;
+    //border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+    @include single-transition(top, .5s);
+
+    input {
+
+      width: 100%;
+      margin-bottom: 10px;
+
+    }
+
+    input[type="submit"] {
+
+      width: auto;
+      float: left;
+      margin: 10px 0;
+    }
+
+  }
+
+  .login-box-body {
+
+    top: 84px;
+    left: 0;
+  }
+
+  .login-box-forgotten {
+
+    border-radius: 0 0 4px 4px;
+    top: 200%;
+    left: 0;
+
+  }
+
+  // The checkbox element
+  .user-login-forgot-link {
+
+    opacity: 0;
+    float: left;
+
+    &:checked + label:before {
+
+      content: "NOT ";
+    }
+
+    &:checked ~ div.login-box-body {
+
+      top: 200%;
+
+    }
+
+    &:checked ~ div.login-box-forgotten {
+
+      top: 84px;
+
+    }
+
+  }
+
+  // the label
+  .user-login-forgot-link-label {
+
+    font-size: 0.8em;
+    font-family: "Roboto Slab";
+    text-transform: none;
+    text-decoration: underline;
+    background-color: $light-grey;
+    color: $dark-grey;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border-radius: 0 0 4px 4px;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+
+  }
+}
+
+// User messages
+#page .message {
+
+  width: 100%;
+  text-align: center;
+  padding: 30px 10px;
+  background: $faded-white;
+  color: $white;
+  position: absolute;
+  top: 0;
+  border: 3px solid $dark-grey;
+
+}
+
+#page .error {
+
+  background-color: $faded-red;
+  color: $white;
+  border-color: $red;
+
+}
+
+#page .warning {
+
+  background-color: $faded-orange;
+  color: $white;
+  border-color: $dark-orange;
+}
+
+#page .success {
+
+  background-color: $faded-green;
+  color: $white;
+  border-color: $dark-green;
+
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 640px) {
+
+
+  .user-controls-language {
+
+    width: 49%;
+    float: left;
+
+  }
+
+  .user-controls-login {
+
+    width: 40%;
+    float: right;
+    margin-right: 10px;
+
+
+    .login-button {
+
+      width: 100%;
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+
+
+  .user-controls-language {
+
+    max-width: 300px;
+  }
+
+  .user-controls-login {
+
+    max-width: 300px;
+
+  }
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {
+}
+
+.ie8 {
+}
+
+.ie7 {
+}
+
+.ie6 {
+}

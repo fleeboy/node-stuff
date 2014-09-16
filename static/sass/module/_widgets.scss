@@ -1,0 +1,93 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Styles
+/*
+/*-----------------------------------------------------------------------------*/
+
+.widget {
+
+  width: 12%;
+  max-width: 100px;
+  border: 1px solid $mid-grey;
+  text-align: center;
+  float: left;
+
+  .widget-title {
+
+    background-color: $dark-grey;
+
+    h4 {
+
+      color: $white;
+      margin: 0;
+      padding: 5px 0;
+      font-size: 0.9em;
+    }
+  }
+
+  .widget-body {
+
+    p {
+
+      color: $mid-grey;
+      font-size: 3em;
+      font-weight: 700;
+      margin: 0;
+      background-color: $white;
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  Media queries
+/*
+/*-----------------------------------------------------------------------------*/
+
+@media all and (min-width: 1920px) {
+
+  .widget {
+
+    min-width: 50px;
+    width: 3%;
+
+    .widget-title {
+
+      h4 {
+
+        font-size: 0.6em;
+        padding: 3px;
+      }
+    }
+
+    .widget-body {
+
+      p {
+
+        font-size: 1.5em;
+      }
+    }
+  }
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {
+}
+
+.ie8 {
+}
+
+.ie7 {
+}
+
+.ie6 {
+}

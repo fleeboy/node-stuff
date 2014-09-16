@@ -1,0 +1,490 @@
+extends layout
+
+block prepend body
+    // Change .not-full-screen to .full-screen for full screen mode! Not used on insights though...
+    body#page.page-insights.logged-in.not-full-screen
+
+block header
+    section#header.header
+        // THis top bit might be sticky?
+        .sticky
+            // Logo
+            .logo-wrapper
+                a(href='/').logo.logo-header
+                    h1  Live Stats &nbsp;
+                        span Insights
+        // User info & controls
+        #user-info.module.info-wrapper
+            .wall
+                .widget.month-wrapper.not-mobile
+                    .widget-title
+                        h4.Month Month
+                    .widget-body
+                        p.month 00
+                .intro-wrapper
+                    .intro
+                        h2 Welcome!
+                        p You are now logged into the Insights section.
+                // The user dropdowns in the header
+                .stats-controls-wrapper
+                    .stats-controls
+                        // User language form
+                        form(action='/', method='post')#stats-language.stats-language
+                            .field.ss-icon(class='field-select')
+                                label(for='lang').hidden Select language
+                                select#select-language
+                                    optgroup(label='checkboxes')
+                                        option(value='all') All languages
+                                        option(value='en') English
+                                        option(value='en') Chinese - Simplified
+                                        option(value='en') Chinese - Traditional
+                                        option(value='fr') French
+                                        option(value='en') Indonesian
+                                        option(value='ru') Russian
+                                        option(value='es') Spanish
+                                    optgroup(label='tags')
+                                        option(value='site1') Site 1
+                                        option(value='site1') Site 2
+                                        option(value='site1') Site 3
+                                        option(value='site1') Site 4
+                                        option(value='site1') Site 5
+                                        option(value='site1') Site 6
+                                        option(value='site1') Site 7
+                                        option(value='site1') Site 8
+                                        option(value='site1') Site 9
+                        // User time range mode
+                        form(action='/', method='post')#user-timerange-mode.user-timerange-mode
+                            .field.ss-icon(class='field-select')
+                                label(for='user-timerange-mode').hidden Time range
+                                select(name="user-timerange-mode")#user-timerange-mode
+                                    option(value='30') Last 30 days
+                                    option(value='ex') Exactly
+                        // User time range input
+                        form(action='/', method='post')#user-timerange-input.user-timerange-input
+                           .field.field-user-timerange-input(class='field-text')
+                               label(for='from').hidden From
+                               input(type='date', name='from', placeholder='From')#user-timerange-input-from.user-timerange-input-from
+                               label(for='to').hidden To
+                               input(type='date', name='to', placeholder='To')#user-timerange-input-to.user-timerange-input-to
+                               input(type='submit', value="Apply")#user-timerange-input-submit.submit.user-timerange-input-submit
+
+block content
+    #fs-wrapper.full-screen-wrapper
+        // The statistics container
+        section#stats.insights
+            .module.stats-wrapper
+                .col.visits-col
+                    .box.stat-box.visits.now#now
+                        h3.stat-title Online now:
+                        p.stat-number 0,000,000
+                    .box.stat-box.visits.today#today
+                        h3.stat-title Visits today:
+                        p.stat-number 0,000,000
+                    .box.stat-box.visits.key.not-mobile#key
+                        h3.stat-title Key:
+                        ul
+                            li Visits
+                            li Go
+                            li Grow
+                .col.go-col
+                    .box.stat-box.go.touch#touch
+                        h3.stat-title Touch
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Touch
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.go.engage#engage
+                        h3.stat-title Engage
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Engage
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.go.decide#decide
+                        h3.stat-title Decide
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Decide
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                .col.grow-col
+                    .box.stat-box.grow.contact#contact
+                        h3.stat-title Contact
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Contact
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.grow.responses#responses
+                        h3.stat-title Responses
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Responses
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+                    .box.stat-box.grow.discipled#discipled
+                        h3.stat-title Discipled
+                            i.ss-icon info
+                        p.stat-number 0,000,000
+                        .info-rollover
+                            h3.stat-title.ss-icon Discipled
+                                i.ss-icon delete
+                            p.info-rollover-text This text helps to explain what each stat is all about.
+    // Insights graphs
+    section#graphs.insights.insights-graph.not-mobile
+        // User graph mode
+        .insights-user-graph-controls
+            form(action='/', method='post')#user-graph-mode.user-graph-mode
+                .field.ss-icon(class='field-select')
+                    label(for='select-graph-mode').hidden Mode
+                    select(name="select-graph-mode")#select-graph-mode
+                        option(value='tvy') Today vs Yesterday
+                        option(value='twvnw') This week vs Next week
+                .field-checkbox-wrapper
+                    .field-checkbox.active
+                        .field-checkbox-today
+                            label(for="select-graph-display-today") Today
+                            input(type="checkbox", name="select-graph-display-today", value="Today")#select-graph-display-today.select-graph-display
+                    .field-checkbox
+                        .field-checkbox-yesterday
+                        label(for="select-graph-display-yesterday") Yesterday
+                        input(type="checkbox", name="select-graph-display-yesterday", value="Yesterday")#select-graph-display-yesterday.select-graph-display
+        #graph.graph-placeholder
+        //- Graphs placeholder
+    // Insights panels
+    section#panels.panels.insights-panels
+        // Visits column
+        .main-col.visits
+            // Visits
+            .panel
+                .panel-header
+                    h3 Visits
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col2#insight-visit-new
+                        .stat 123
+                        .label New
+                    .col2#insight-visit-returning
+                        .stat 156
+                        .label Returning
+            // Reach
+            .panel.graph
+                .panel-header
+                    h3 Reach
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col#insight-reach-graph
+                        .graph // Graph placeholder
+                        .stat 8,758,700
+                        .label Total
+            // Technology
+            .panel
+                .panel-header
+                    h3 Technology
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col3#tech-mobile.icon-mob
+                        .stat 7
+                        .label Mobile
+                    .col3#tech-tablet.icon-tab
+                        .stat 45
+                        .label Tablet
+                    .col3#tech-desktop.icon-desk
+                        .stat 178
+                        .label Desktop
+            // Locations
+            .panel.map
+                .panel-header
+                    h3 Locations
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col#locations-map
+                        .map // map placeholder
+                        // Locations map
+                    .col.list#locations
+                        input(type="checkbox", name="panel-more-locations")#panel-more-locations.panel-more
+                        label(for="panel-more-locations").panel-more-label Show
+                        ul
+                            li#location1
+                                .stat 47%
+                                .label Argentina
+                            li#location2
+                                .stat 29%
+                                .label United States
+                            li#location3
+                                .stat 16%
+                                .label Brazil
+                            li#location3
+                                .stat 8%
+                                .label Ukraine
+                            li#location3
+                                .stat 1%
+                                .label Serbia
+        // Go column A
+        .main-col.go.go-a
+            // Traffic Source
+            .panel
+                .panel-header
+                    h3 Traffic source
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col4#traffic-social
+                        .stat 18
+                        .label Social
+                    .col4#traffic-search
+                        .stat 62
+                        .label Search
+                    .col4#traffic-sites
+                        .stat 0
+                        .label Sites
+                    .col4#traffic-direct
+                        .stat 48
+                        .label Direct
+                    .col.list
+                        input(type="checkbox", name="panel-more-traffic-source")#panel-more-traffic-source.panel-more
+                        label(for="panel-more-traffic-source").panel-more-label Show
+                        ul
+                            li#source1
+                                .stat 47
+                                .label google.com
+                            li#source2
+                                .stat 9
+                                .label google.co.uk
+                            li#source3
+                                .stat 8
+                                .label mail.yahoo.com
+                            li#source2
+                                .stat 9
+                                .label google.co.uk
+                            li#source3
+                                .stat 8
+                                .label mail.yahoo.com
+            // Views
+            .panel
+                .panel-header
+                    h3 Views
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col2#shared-views
+                        .stat 7
+                        .label Shared views
+                    .col2#views
+                        .stat 45
+                        .label Views
+                    .col.list
+                        input(type="checkbox", name="panel-more-views")#panel-more-views.panel-more
+                        label(for="panel-more-views").panel-more-label Show
+                        ul
+                            li#views1
+                                .stat 29
+                                .label yesheis.com/es
+                            li#views2
+                                .stat 11
+                                .label yesheis.com
+                            li#views3
+                                .stat 5
+                                .label cvclavoz.com
+                            li#views2
+                                .stat 11
+                                .label yesheis.com
+                            li#views3
+                                .stat 5
+                                .label cvclavoz.com
+            //Views Source
+            .panel.pie
+                .panel-header
+                    h3 Views Source
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col#views-source-chart
+                    // Pie chart
+                    .col2#views-source-today
+                        .stat 9
+                        .label Today
+                    .col2#views-source-total
+                        .stat 2,345
+                        .label Total
+                    .col.list
+                        ul
+                            li#views-source1
+                                .stat 40%
+                                .label YouTube
+                            li#views-source2
+                                .stat 25%
+                                .label Vimeo
+                            li#views-source3
+                                .stat 25%
+                                .label Youku
+                            li#views-source4
+                                .stat 10%
+                                .label Other
+        // Go column B
+        .main-col.go.go-b
+            // Decisions
+            .panel
+               .panel-header
+                   h3 Decisions
+                   i.ss-icon info
+               .info-rollover
+                   p.info-rollover-text This text helps to explain what each stat is all about.
+               .panel-body
+                   .col2#decisions-yes
+                       .stat 127
+                       .label Yes
+                   .col2#decisions-unsure
+                       .stat 238
+                       .label Unsure
+            // Shares
+            .panel
+                .panel-header
+                    h3 Shares
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col#shares
+                        .stat 318,262
+                        .label Shares
+                    .col.list
+                        input(type="checkbox", name="panel-more-shares")#panel-more-shares.panel-more
+                        label(for="panel-more-shares").panel-more-label Show
+                        ul
+                            li#shares1
+                                .stat 82,850
+                                .label yesheis.com/es
+                            li#shares2
+                                .stat 72,504
+                                .label yesheis.com
+                            li#shares3
+                                .stat 56,646
+                                .label cvclavoz.com
+                            li#shares2
+                                .stat 72,504
+                                .label yesheis.com
+                            li#shares3
+                                .stat 56,646
+                                .label cvclavoz.com
+            // Shares Insight
+            .panel.pie
+                .panel-header
+                    h3 Shares Insight
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col#shares-insight
+                        .stats-controls-wrapper
+                            .stats-controls
+                                // User stats mode
+                                form(action='/', method='post')#user-shares-insight-mode.stats-view-mode
+                                    .field.ss-icon(class='field-select')
+                                        label(for='lang').hidden Stats mode
+                                        select#select-shares-insight-mode
+                                            option(value='all') All Categories
+                                            option(value='cat1') A category
+                    .col#shares-insight-chart
+                        // Pie chart
+                        .graph
+                    .col.list
+                        ul
+                            li#shares-insight1
+                                .stat 62%
+                                .label Social Networks
+                            li#shares-insight2
+                                .stat 20%
+                                .label Blogging platforms
+                            li#shares-insight3
+                                .stat 13%
+                                .label Email/IM services
+                            li#shares-insight4
+                                .stat 5%
+                                .label Other
+            // Campaign monitor
+            .panel.chart
+                .panel-header
+                    h3 Campaign Monitor
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col#CM-graph
+                        .graph // Campaign monitor graph
+                    .col.list#cm-language
+                        input(type="checkbox", name="panel-more-campaign")#panel-more-campaign.panel-more
+                        label(for="panel-more-campaign").panel-more-label Show
+                        ul
+                            li#cm-language1
+                                .stat 82,850
+                                .label Russian
+                            li#cm-language2
+                                .stat 72,504
+                                .label Spanish
+                            li#cm-language3
+                                .stat 56,646
+                                .label Chinese
+                            li#cm-language2
+                                .stat 72,504
+                                .label Spanish
+                            li#cm-language3
+                                .stat 56,646
+                                .label Chinese
+        // Grow column
+        .main-col.grow
+            // Responses
+            .panel
+                .panel-header
+                    h3 Responses
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col3#responses-email
+                        .stat 342
+                        .label Email
+                    .col3#reponses-sms
+                        .stat 986
+                        .label SMS
+                    .col3#responses-web
+                        .stat 2,321
+                        .label Web
+            // Responses Insight
+            .panel
+                .panel-header
+                    h3 Responses Insight
+                    i.ss-icon info
+                .info-rollover
+                    p.info-rollover-text This text helps to explain what each stat is all about.
+                .panel-body
+                    .col2#responses-insight-contacts
+                        .stat 13
+                        .label Contacts
+                    .col2#reponses-insights-disciples
+                        .stat 43
+                        .label Disciples
+block user
+  // User settings
+  .user-controls-settings.ss-icon
+      a(href="#")#settings.button.settings-button settings
+  // User login
+  .user-controls-login
+      a(href="#")#login.button.login-button.ss-user Log out Gavin Mills

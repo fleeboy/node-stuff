@@ -1,0 +1,21 @@
+// Core.scss
+// Aggregate _partial stylesheets ONLY
+
+@import "compass";
+
+@import "base/normalize";
+@import "base/helpers";
+@import "base/grid";
+@import "base/base";
+@import "layout/layout";
+
+// Modules
+@import "module/header-toggle";
+@import "module/stats-control";
+@import "module/testimonies";
+@import "module/user";
+@import "module/panels";
+@import "module/widgets";
+@import "module/data";
+@import "module/slider";
+

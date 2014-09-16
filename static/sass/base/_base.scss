@@ -1,0 +1,316 @@
+// Mobile first styles
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  General page styles
+/*  font-family: 'Roboto Slab', serif;
+/*  font-family: 'Open Sans', sans-serif;
+/*
+/*-----------------------------------------------------------------------------*/
+
+html {
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px/1em;
+  background-color: $dark-grey;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  color: $purple;
+  text-transform: uppercase;
+
+}
+
+h1 {}
+
+h2 {
+
+  font-size: 1.4em;
+}
+
+p {
+  font-family: 'Roboto Slab', serif;
+  color: $dark-grey;
+}
+
+a {
+
+  &:hover {
+  }
+
+  &:visited {
+  }
+
+  &:active {
+  }
+}
+
+img {
+
+  max-width: 100%;
+
+}
+
+section {
+
+  overflow: hidden;
+}
+
+// Lists
+.list {
+
+  ul {
+
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+
+    list-style-type: none;
+  }
+}
+
+
+
+/*----------------------------------- Forms ------------------------------------*/
+
+form {}
+
+label {
+
+  font-size: 0.8em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  font-weight: 700;
+  float: left;
+
+}
+
+input {}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-family: "Open Sans";
+  font-weight: 700;
+  //text-transform: uppercase;
+  background-color: $faded-white;
+  color: $dark-grey;
+  border: 1px solid $mid-grey;
+
+
+}
+
+input[type="submit"],
+.submit {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-family: "Open Sans";
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: $purple;
+  color: $faded-white;
+  border: 1px solid $dark-grey;
+
+  &:hover {
+
+    color: $white;
+
+  }
+}
+
+.field-select {
+
+  position: relative;
+  margin: 0 0 10px;
+
+  select {
+
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-family: "Open Sans";
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: $light-grey;
+    color: $purple;
+    border: 1px solid $mid-grey;
+
+  }
+
+
+  &:hover,
+  &:focus,
+  &.active {
+
+    select {
+      background-color: $white;
+    }
+
+    &:after {
+
+      color: $white;
+
+    }
+
+  }
+
+  &:after {
+
+    content: "navigatedown";
+    font-size: 1.2em;
+    color: $faded-white;
+    display: block;
+    width: 42px;
+    line-height: 48px;
+    text-align: center;
+    height: 100%;
+    @include background-image(linear-gradient(top, $purple, $dark-purple));
+    position: absolute;
+    top: 0;
+    right: -1px;
+    pointer-events: none;
+    border-radius: 0 4px 4px 0;
+    //border: 1px solid $faded-white;
+
+  }
+}
+
+// Checkbox defaults
+
+.field-checkbox-wrapper {
+
+  padding: .5em 0;
+}
+
+.field-checkbox {
+
+  float: left;
+  position: relative;
+
+  label {
+
+    float: none;
+    color: $white;
+    font-family: "Roboto Slab";
+    font-weight: 100;
+    text-transform: none;
+    padding: 0 2em 0 2em;
+    line-height: 1em;
+    cursor: pointer;
+
+  }
+
+  &:after {
+
+    content: " ";
+    background-color: $purple;
+    border-radius: 50%;
+    width: 15px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 4px 0 6px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    cursor: pointer;
+    color: $white;
+
+  }
+
+  input[type="checkbox"] {
+
+    vertical-align: middle;
+    line-height: 1em;
+    opacity: 0;
+
+  }
+
+  // Add .active to .field-checkbox to show tick...
+  &.active {
+
+    &:after {
+
+      content: "✓";
+    }
+  }
+}
+
+/*----------------------------------- Buttons ------------------------------------*/
+
+.button {
+
+  float: left;
+  background: $dark-grey;
+  padding: 15px;
+  line-height: 1em;
+  border-radius: 4px;
+  color: $light-grey;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+  margin: 0 0 10px;
+
+}
+
+/*--------------------------------- Other stuff -----------------------------------*/
+
+i {
+
+  font-size: 1.4em;
+}
+
+:focus {
+
+  outline-color: $purple;
+  outline-width: 2px;
+}
+
+:selection {
+
+  background-color: $light-green;
+
+}
+
+/*-----------------------------------------------------------------------------*/
+/*
+/*  IE overrides
+/*
+/*-----------------------------------------------------------------------------*/
+
+// HTML5 Boilerplate classes
+.oldie {}
+
+.ie8 {}
+
+.ie7 {}
+
+.ie6 {}
